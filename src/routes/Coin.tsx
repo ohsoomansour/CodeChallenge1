@@ -7,7 +7,7 @@ import {useQuery} from "@tanstack/react-query"
 import { fetchCoinTickers } from "./api";
 import {fetchCoinInfo} from "./api";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHouse} from '@fortawesome/free-solid-svg-icons';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 /* 
 1.타입스크립트에게 우리 URL 내에 몇몇 파라미터들이 있다는 것 말해줘야 한다 
@@ -171,25 +171,7 @@ export default function Coin() {
     ["tickers", coinId],
     () => fetchCoinTickers(coinId),
   )
-  //console.log(tickersData);
-  /* const [info, setInfo] = useState<IinfoData>();
-  const [loading, setLoading] = useState(true);
-  const [priceInfo, setPriceInfo] = useState<PriceData>();
-  useEffect(() => {
-    (async () => {
-      const infoData = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
-      ).json();
-      //console.log(infoData);
-      const priceData = await(
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
-      ).json();
-      //console.log(priceData);
-      setInfo(infoData);
-      setPriceInfo(priceData);
-      setLoading(false);
-    })()
-  },[coinId]) */
+
   const loading = infoLoading || tickersLoading;
   return (
     <Container>

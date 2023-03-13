@@ -35,10 +35,8 @@ interface RouteParams {
     알아서 적합한 '색깔' 또는 '폰트'를 자동으로 선택 
   
 */
-
 export default function Chart() {
   const {coinId} = useParams<RouteParams>();
-  //console.log(coinId);
   const {isLoading, data } = useQuery<IHistory[]>(["ohlcv"], () => fetchCoinHistory(coinId) )
   const isDark = useRecoilValue(darkAtom);
   const exceptData = data ?? [];
